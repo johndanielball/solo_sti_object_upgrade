@@ -3,13 +3,27 @@ var jem = ["Jem", "62347", "63500", 4];
 var boo = ["Boo", "11435", "54000", 3];
 var scout = ["Scout", "6243", "74750", 5];
 
-var employees = [atticus, jem, boo, scout];
+var employeeArrays = [atticus, jem, boo, scout];
+
+var employeeObjects = [];
+
+employeeArrays.forEach(function(i, item) {
+	var employee = new Employee(item[0], item[1], item[2], item[3]);
+	employeeObjects.push(employee);
+})
+
+function Employee(name, empNumber, annualSalary, reviewRating){
+	this.name = name;
+	this.empNumber = empNumber;
+	this.annualSalary = annualSalary;
+	this.reviewRating = reviewRating;
+}
 
 function calculateSTI(empInfo) {
-	var name = empInfo[0];
-	var empNumber = empInfo[1];
-	var currentSalary = Math.round(parseFloat(empInfo[2]));
-	var rating = empInfo[3];
+	var name = empInfo.name;
+	var empNumber = empInfo.empNumber;
+	var currentSalary = Math.round(parseFloat(empInfo.annualSalary));
+	var rating = empInfo.reviewRating;
 	
 	var processedEmployee = [];
 	var bonus = 0;
@@ -69,7 +83,7 @@ function adjustBonusPercentage(empNumber, bonusPercentage, currentSalary) {
 }
 
 
-for(var i = 0; i < employees.length; i++) {
-	console.log(calculateSTI(employees[i]));
+for(var i = 0; i < employeeObjects.length; i++) {
+	console.log(calculateSTI(employeeObjects[i]));
 
 }
