@@ -7,7 +7,7 @@ var employeeArrays = [atticus, jem, boo, scout];
 
 var employeeObjects = [];
 
-employeeArrays.forEach(function(i, item) {
+employeeArrays.forEach(function(item) {
 	var employee = new Employee(item[0], item[1], item[2], item[3]);
 	employeeObjects.push(employee);
 })
